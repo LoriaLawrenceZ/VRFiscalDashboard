@@ -1,12 +1,12 @@
-package application.usecases;
+package br.com.vrsoftware.application.usecases;
 
-import application.usecases.interfaces.JiraIssueRepository;
-import domain.entities.JiraIssue;
+import br.com.vrsoftware.application.usecases.interfaces.IJiraIssueRepository;
+import br.com.vrsoftware.domain.entities.jira.JiraIssue;
 
 public class GetJiraIssueUseCase {
-    private final JiraIssueRepository repository;
+    private final IJiraIssueRepository repository;
 
-    public GetJiraIssueUseCase(JiraIssueRepository repository) {
+    public GetJiraIssueUseCase(IJiraIssueRepository repository) {
         this.repository = repository;
     }
 

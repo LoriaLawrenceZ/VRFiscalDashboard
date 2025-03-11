@@ -1,6 +1,6 @@
-package application.usecases.interfaces;
+package br.com.vrsoftware.application.usecases.interfaces;
 
-import domain.entities.JiraIssue;
+import br.com.vrsoftware.domain.entities.jira.JiraIssue;
 import java.util.List;
 
 public interface IJiraIssueRepository {

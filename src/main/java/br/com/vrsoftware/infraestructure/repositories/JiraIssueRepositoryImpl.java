@@ -1,11 +1,11 @@
-package infrastructure.repositories;
+package br.com.vrsoftware.infraestructure.repositories;
 
-import application.usecases.interfaces.JiraIssueRepository;
-import domain.entities.JiraIssue;
+import br.com.vrsoftware.application.usecases.interfaces.IJiraIssueRepository;
+import br.com.vrsoftware.domain.entities.jira.JiraIssue;
 import java.util.List;
 import java.util.Arrays;
 
-public class JiraIssueRepositoryImpl implements JiraIssueRepository {
+public class JiraIssueRepositoryImpl implements IJiraIssueRepository {
     @Override
     public JiraIssue getById(String id) {
         // Simulando requisição ao Jira (normalmente aqui usaria um cliente HTTP)

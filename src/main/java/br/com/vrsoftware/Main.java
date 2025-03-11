@@ -1,8 +1,8 @@
 package br.com.vrsoftware;
 
 import br.com.vrsoftware.dto.AuthCredentialsDTO;
-import br.com.vrsoftware.service.jira.DashboardApiClientService;
-import br.com.vrsoftware.service.security.SecureCredentialsLoaderService;
+import br.com.vrsoftware.infraestructure.services.DashboardApiClientService;
+import br.com.vrsoftware.security.SecureCredentialsLoaderService;
 
 public class Main {
 
