@@ -78,6 +78,16 @@ public class LoginController {
             // Apply proxy settings to system properties
             SecureProxyLoaderService.applyProxySettings(proxyProperties);
 
+            // Store proxy credentials in session
+            session.setAttribute("proxyUser", proxyUser);
+            session.setAttribute("proxyPassword", proxyPassword);
+
+            // Apply proxy credentials to system properties
+            System.setProperty("http.proxyUser", proxyUser);
+            System.setProperty("http.proxyPassword", proxyPassword);
+            System.setProperty("https.proxyUser", proxyUser);
+            System.setProperty("https.proxyPassword", proxyPassword);
+
             // Redirect to dashboard
             return "redirect:/dashboard";
         } catch (AuthenticationException e) {

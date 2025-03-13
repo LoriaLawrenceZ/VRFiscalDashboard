@@ -5,6 +5,7 @@ import br.com.vrsoftware.exceptions.EncryptionException;
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
+import java.net.PasswordAuthentication;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -63,5 +64,19 @@ public class SecureProxyLoaderService {
         System.setProperty("https.proxyPort", proxyProperties.getProperty("https.proxyPort"));
         System.setProperty("http.proxyUser", proxyProperties.getProperty("http.proxyUser"));
         System.setProperty("http.proxyPassword", proxyProperties.getProperty("http.proxyPassword"));
+        System.setProperty("https.proxyUser", proxyProperties.getProperty("http.proxyUser"));
+        System.setProperty("https.proxyPassword", proxyProperties.getProperty("http.proxyPassword"));
+    }
+
+    public static PasswordAuthentication getProxyCredentials() {
+        Properties proxyProperties = System.getProperties();
+        String proxyUser = proxyProperties.getProperty("http.proxyUser");
+        String proxyPassword = proxyProperties.getProperty("http.proxyPassword");
+
+        if (proxyUser != null && proxyPassword != null) {
+            return new PasswordAuthentication(proxyUser, proxyPassword.toCharArray());
+        }
+
+        return null;
     }
 }
